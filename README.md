@@ -63,7 +63,7 @@ In order to check if a given address holds a Lens handle, we will use the GraphQ
 
 [Superfluid Widget](https://docs.superfluid.finance/superfluid/developers/superfluid-subscriptions/superfluid-checkout-widget) is meant to be imported into an existing Wagmi frontend, and works with several wallet connection libraries -- we choose Web3Modal in this project, but others are possible too (e.g. RainbowKit).
 
-To install all these dependencies, we can run the following at the root of our project:
+To install all these dependencies, we can run ```npm install``` or ```yarn add``` at the root of our project:
 
 ```sh
 #npm
@@ -181,6 +181,29 @@ query DefaultProfile {
 `)
 ```
 
+At this stage, your project tree should be:
+```sh
+.
+├── app
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components
+│   └── lens.ts
+├── public
+│   ├── next.svg
+│   └── vercel.svg
+├── README.md
+├── next-env.d.ts
+├── next.config.js
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── tailwind.config.ts
+└── tsconfig.json
+```
+
 ## Setup Superfluid Subscription Widget
 
 We then need to specify the properties of our Superfluid Subscription Widget: ```paymentOptions```, ```paymentDetails``` and ```productDetails```. 
@@ -233,6 +256,32 @@ const productDetails: ProductDetails = {
 };
 
 export default productDetails;
+```
+
+At this stage and until the end, your project file tree should be:
+```sh
+.
+├── app
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components
+│   ├── lens.ts
+│   ├── paymentDetails.ts
+│   ├── paymentOptions.ts
+│   └── productDetails.ts
+├── public
+│   ├── next.svg
+│   └── vercel.svg
+├── README.md
+├── next-env.d.ts
+├── next.config.js
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── tailwind.config.ts
+└── tsconfig.json
 ```
 
 ## Configure Wallet Connection
