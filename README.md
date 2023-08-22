@@ -175,7 +175,59 @@ query DefaultProfile {
 
 ## Setup Superfluid Subscription Widget
 
-*TODO*
+We then need to specify the properties of our Superfluid Subscription Widget: ```paymentOptions```, ```paymentDetails``` and ```productDetails```. 
+We will create one file for each in our ```components``` folder:
+
+```ts
+//paymentOptions.ts
+import { PaymentOption } from "@superfluid-finance/widget";
+
+const paymentOptions: PaymentOption[] = [
+    {
+        chainId: 80001,
+        receiverAddress: "0x7BDa037dFdf9CD9Ad261D27f489924aebbcE71Ac",
+        superToken: {
+            address: "0x42bb40bf79730451b11f6de1cba222f17b87afd7",
+        },
+        flowRate: {
+            amountEther: "12345",
+            period: "month",
+        },
+    },
+];
+
+export default paymentOptions;
+```
+
+```ts
+//paymentDetails.ts
+import { PaymentDetails } from "@superfluid-finance/widget";
+
+import paymentOptions from "./paymentOptions";
+
+const paymentDetails: PaymentDetails = {
+    paymentOptions,
+};
+
+export default paymentDetails;
+```
+
+```ts
+//productDetails.ts
+import { ProductDetails } from "@superfluid-finance/widget";
+
+const productDetails: ProductDetails = {
+    name: "Superfluid Mini UI",
+    description:
+        "Superfluid Mini UI illustrates how to create a basic UI to set up a stream towards some Lens account holders.",
+    successText: "Success! End of demo.",
+    successURL: "#",
+};
+
+export default productDetails;
+```
+
+
 
 ## Configure Wallet Connection
 
