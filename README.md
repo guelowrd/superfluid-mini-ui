@@ -59,9 +59,119 @@ In order to check if a given address holds a Lens handle, we will use the GraphQ
 
 *TODO: then superfluid dependencies, then wagmi & web3modal ones.*
 
+```sh
+#npm
+npm install --save @superfluid-finance/widget wagmi @superfluid-finance/tokenlist @apollo/client graphql @web3modal/ethereum @web3modal/react
+
+#yarn
+yarn add @superfluid-finance/widget wagmi @superfluid-finance/tokenlist @apollo/client graphql @web3modal/ethereum @web3modal/react
+```
+
 ## Use Lens API
 
-*TODO*
+Let's create a new folder at the root, ```components```. In this folder we add a new file, ```lens.ts```, with the following code:
+
+```ts
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
+
+const APIURL = 'https://api-mumbai.lens.dev/';
+
+export const apolloClient = new ApolloClient({
+    uri: APIURL,
+    cache: new InMemoryCache(),
+})
+``` 
+
+Doing this, we have created our ```ApolloClient``` that we will use for our API queries.
+Now, in the same file, let's add the query we need to return the default profile for a given wallet -- if a given address does not hold a Lens handle, this will return ```null```:
+
+```ts
+export const query = gql(`
+query DefaultProfile {
+    defaultProfile(request: { ethereumAddress: "0x3A5bd1E37b099aE3386D13947b6a90d97675e5e3"}) {
+      id
+      name
+      bio
+      isDefault
+      attributes {
+        displayType
+        traitType
+        key
+        value
+      }
+      followNftAddress
+      metadata
+      handle
+      picture {
+        ... on NftImage {
+          contractAddress
+          tokenId
+          uri
+          chainId
+          verified
+        }
+        ... on MediaSet {
+          original {
+            url
+            mimeType
+          }
+        }
+      }
+      coverPicture {
+        ... on NftImage {
+          contractAddress
+          tokenId
+          uri
+          chainId
+          verified
+        }
+        ... on MediaSet {
+          original {
+            url
+            mimeType
+          }
+        }
+      }
+      ownedBy
+      dispatcher {
+        address
+        canUseRelay
+      }
+      stats {
+        totalFollowers
+        totalFollowing
+        totalPosts
+        totalComments
+        totalMirrors
+        totalPublications
+        totalCollects
+      }
+      followModule {
+        ... on FeeFollowModuleSettings {
+          type
+          contractAddress
+          amount {
+            asset {
+              name
+              symbol
+              decimals
+              address
+            }
+            value
+          }
+          recipient
+        }
+        ... on ProfileFollowModuleSettings {
+         type
+        }
+        ... on RevertFollowModuleSettings {
+         type
+        }
+      }
+    }
+  }
+`)
+```
 
 ## Setup Superfluid Subscription Widget
 
