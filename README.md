@@ -190,7 +190,7 @@ At this stage, your project tree should be:
 │   ├── layout.tsx
 │   └── page.tsx
 ├── components
-│   └── lens.ts
+│   └── lens.ts      <- we created this
 ├── public
 │   ├── next.svg
 │   └── vercel.svg
@@ -268,9 +268,9 @@ At this stage and until the end, your project file tree should be:
 │   └── page.tsx
 ├── components
 │   ├── lens.ts
-│   ├── paymentDetails.ts
-│   ├── paymentOptions.ts
-│   └── productDetails.ts
+│   ├── paymentDetails.ts      <- we created this
+│   ├── paymentOptions.ts      <- we created this
+│   └── productDetails.ts      <- we created this
 ├── public
 │   ├── next.svg
 │   └── vercel.svg
