@@ -12,15 +12,11 @@ git clone https://github.com/guelowrd/superfluid-mini-ui
 npm install
 # or yarn, pnpm
 ```
-3. Run the app locally
-```sh
-npm run dev
-```
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then check the end of this tutorial to run the app locally [TODO: ADD LINK]
 
 *TODO: add screenshot*
 
-Keep reading for the full step-by-step tutorial explaining how to make that frontend.
+Keep reading for the full step-by-step tutorial explaining how to actually make that frontend yourself.
 
 ## Objectives
 
@@ -380,6 +376,45 @@ Each piece of code corresponding to each of these steps are to be added inside `
     </main>
   )
 ```
+
+## Run locally
+
+We are done! Now is the time to see how the dApp looks like. To do so:
+
+1. Run the app locally
+```sh
+npm run dev
+```
+2. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+*TODO: add screenshots*
+
+## Troubleshooting
+
+You may get these warnings upon compilation: 
+```sh
+Module not found: Can't resolve 'pino-pretty' / 'lokijs' / 'encoding'
+```
+
+If so, you can amend your ```next.config.js``` file as follows:
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    webpack: (config) => {
+        config.externals.push("pino-pretty", "lokijs", "encoding")
+        return config
+    },
+}
+
+module.exports = nextConfig
+```
+
+*TODO*
+* *"No matching key. expirer: topic:6db85e5f5e3a37acaf43c7be57783088b148c1fd9b47a97a1dff6b30c53c0424"*
+* *"MUI: The contrast ratio of 2.8225806451612905:1 for #fff on #1DB227"*
+* *"Unsuccessful attempt at preloading some images... (25) ['https://explorer-api.walletconnect.com/w3m/v1/getA…"*
+* *"Warning: Received `true` for a non-boolean attribute `expanded`."*
+
 
 ## Ressources
 
