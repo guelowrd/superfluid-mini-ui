@@ -12,7 +12,7 @@ git clone https://github.com/guelowrd/superfluid-mini-ui
 npm install
 # or yarn, pnpm
 ```
-Then check the end of this tutorial to run the app locally [TODO: ADD LINK]
+Then go to [the end of this tutorial](https://github.com/guelowrd/superfluid-mini-ui#run-locally) to run the app locally.
 
 *TODO: add screenshot*
 
@@ -51,9 +51,19 @@ cd superfluid-mini-ui && code .
 
 ## Install dependencies
 
+### Lens Protocol
+
 In order to check if a given address holds a Lens handle, we will use the GraphQL client [apollo](https://docs.lens.xyz/docs/apollo-client) to query Lens data, and more specificaly [Get default profile](https://docs.lens.xyz/docs/get-default-profile) query.
 
-*TODO: then superfluid dependencies, then wagmi & web3modal ones.*
+### Superfluid
+
+[Superfluid Widget](https://docs.superfluid.finance/superfluid/developers/superfluid-subscriptions/superfluid-checkout-widget) offer a smooth UX for payment streams setup and 1-click checkout. This is used at the end of our workflow.
+
+### Wagmi & Web3Modal
+
+[Superfluid Widget](https://docs.superfluid.finance/superfluid/developers/superfluid-subscriptions/superfluid-checkout-widget) is meant to be imported into an existing Wagmi frontend, and works with several wallet connection libraries -- we choose Web3Modal in this project, but others are possible too (e.g. RainbowKit).
+
+To install all these dependencies, we can run the following at the root of our project:
 
 ```sh
 #npm
@@ -65,7 +75,9 @@ yarn add @superfluid-finance/widget wagmi @superfluid-finance/tokenlist @apollo/
 
 ## Use Lens API
 
-Let's create a new folder at the root, ```components```. In this folder we add a new file, ```lens.ts```, with the following code:
+Since verifying Lens handle ownership is the first step of our user workflow, let's start with that!
+
+We can create a new folder at the root, ```components```. In this folder we add a new file, ```lens.ts```, with the following code:
 
 ```ts
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
@@ -266,7 +278,7 @@ const wagmiConfig = createConfig({
 const ethereumClient = new EthereumClient(wagmiConfig, supportedNetworks);
 
 export default function Home() { 
-    // TODO
+    // This will be filled in the next section!
 }
 ```
 
@@ -394,6 +406,7 @@ npm run dev
 You may get these warnings upon compilation: 
 ```sh
 Module not found: Can't resolve 'pino-pretty' / 'lokijs' / 'encoding'
+...
 ```
 
 If so, you can amend your ```next.config.js``` file as follows:
@@ -408,6 +421,7 @@ const nextConfig = {
 
 module.exports = nextConfig
 ```
+
 
 *TODO*
 * *"No matching key. expirer: topic:6db85e5f5e3a37acaf43c7be57783088b148c1fd9b47a97a1dff6b30c53c0424"*
