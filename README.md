@@ -1,34 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Superfluid Widget + Lens Protocol
 
-## Getting Started
+This is an example project showing how to build a simple React UI to start money streams towards wallets which are holding a Lens handle using [Superfluid Subscriptions Widgets](https://www.superfluid.finance/subscriptions).
 
-First, run the development server:
-
-```bash
+If you cannot wait and want to see what the dApp looks like right away, here are the steps:
+1. Clone this repo
+```sh
+git clone https://github.com/guelowrd/superfluid-mini-ui
+```
+2. Install the dependencies
+```sh
+npm install
+# or yarn, pnpm
+```
+3. Run the app locally
+```sh
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+*TODO: add screenshot*
+
+Keep reading for the full step-by-step tutorial explaining how to make that frontend.
+
+## Objectives
+
+The purpose of this app will be to:
+1. Allow the user to input an address in an input field
+2. Check that the given address is valid, i.e. does hold a Lens handle
+3. If the address is valid, allow the user to create a money stream using Superfluid Subscription Widget
+
+## Setup
+
+First, check that your development environment is ready.
+
+If you don’t have **Node.js** installed, install it from [here](https://nodejs.org/en/). You’ll need Node.js version 10.13 or later.
+You’ll be using your own text editor and terminal app for this tutorial.
+
+> If you are on Windows, we recommend using [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+
+## Create a Next.js app
+
+We are using Next.js to build our dApp, and more specifically the tool ```create-next-app``` which bootstraps a Next.js project for you.
+To do so, open your terminal, ```cd``` into the directory you’d like to create the app in, and run the following command:
+```sh
+npx create-next-app@latest superfluid-mini-ui --use-npm
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![create-next-app options](./public/create-next-app.png "create-next-app options")
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You now have a new directory called ```superfluid-mini-ui```. Let’s ```cd``` into it and open your favorite editor:
+```sh
+cd superfluid-mini-ui && code .
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Install dependencies
 
-## Learn More
+In order to check if a given address holds a Lens handle, we will use the GraphQL client [apollo](https://docs.lens.xyz/docs/apollo-client) to query Lens data, and more specificaly [Get default profile](https://docs.lens.xyz/docs/get-default-profile) query.
 
-To learn more about Next.js, take a look at the following resources:
+*TODO: then superfluid dependencies, then wagmi & web3modal ones.*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Use Lens API
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+*TODO*
 
-## Deploy on Vercel
+## Setup Superfluid Subscription Widget
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+*TODO*
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Configure Wallet Connection
+
+*TODO*
+
+## Return the UI
+
+*TODO*
+
+## Ressources
+
+[Lens API](https://docs.lens.xyz/docs/querying-from-an-application)
+
+[Superfluid Subscription](https://docs.superfluid.finance/superfluid/developers/superfluid-subscriptions)
+
+[Superfluid Widget Example using web3modal](https://github.com/superfluid-finance/widget/tree/master/examples/widget-vite-react-web3modal)
