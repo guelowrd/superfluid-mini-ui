@@ -8,8 +8,8 @@ export const apolloClient = new ApolloClient({
 })
 
 export const query = gql(`
-query DefaultProfile {
-    defaultProfile(request: { ethereumAddress: "0x3A5bd1E37b099aE3386D13947b6a90d97675e5e3"}) {
+query DefaultProfile($address: EthereumAddress!) {
+    defaultProfile(request: { ethereumAddress: $address }) {
       id
       name
       bio
