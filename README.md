@@ -310,7 +310,7 @@ import paymentDetails from "../configs/paymentDetails";
 import productDetails from "../configs/productDetails";
 import { apolloClient, query } from "../configs/lens";
 
-const projectId = "952483bf7a0f5ace4c40eb53967f1368";
+const projectId = "af4b0769e1b4b2349a6bafe35fa1180e";
 
 const { publicClient } = configureChains(supportedNetworks, [
   w3mProvider({ projectId }),
@@ -454,7 +454,7 @@ It should look like this:
 
 ![app opening screen](./public/app-screenshot-1.png "app opening screen")
 
-If the input address does not have a Lens handle, the user cannot create a SuperFluid strem:
+If the input address does not have a Lens handle, the user cannot create a SuperFluid stream:
 
 ![address invalid screen](./public/app-screenshot-2.0.png "app address invalid screen")
 
@@ -462,7 +462,7 @@ If the input address is valid, "Create Stream" button appears:
 
 ![address valid screen](./public/app-screenshot-2.1.png "app address valid screen")
 
-The user can then use SuperFluid Widget to setup the payment stream by connecting their wallet, wrapping ERC20 to SuperTokens, and activate the stream.
+The user can then use SuperFluid Widget to setup the payment stream by connecting their wallet, wrapping ERC20 tokens to Super Tokens, and activate the stream.
 
 ![superfluid widget screen](./public/app-screenshot-3.png "app superfluid widget screen")
 
@@ -489,7 +489,7 @@ module.exports = nextConfig
 
 
 *TODO*
-* *"No matching key. expirer: topic:6db85e5f5e3a37acaf43c7be57783088b148c1fd9b47a97a1dff6b30c53c0424"*
+* *"No matching key. expirer: topic:6db85e5f5e3a37acaf43c7be57783088b148c1fd9b47a97a1dff6b30c53c0424" -- only happened once*
 * *"MUI: The contrast ratio of 2.8225806451612905:1 for #fff on #1DB227"*
 * *"Unsuccessful attempt at preloading some images... (25) ['https://explorer-api.walletconnect.com/w3m/v1/getA…"*
 * *"Warning: Received `true` for a non-boolean attribute `expanded`."*
