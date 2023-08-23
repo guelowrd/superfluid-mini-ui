@@ -14,11 +14,11 @@ import superTokenList from "@superfluid-finance/tokenlist";
 import { useState, useMemo } from "react";
 import { configureChains, createConfig, WagmiConfig, useNetwork } from "wagmi";
 
-import paymentDetails from "../components/paymentDetails";
-import productDetails from "../components/productDetails";
-import { apolloClient, query } from "../components/lens";
+import paymentDetails from "../configs/paymentDetails";
+import productDetails from "../configs/productDetails";
+import { apolloClient, query } from "../configs/lens";
 
-const projectId = "952483bf7a0f5ace4c40eb53967f1368";
+const projectId = "af4b0769e1b4b2349a6bafe35fa1180e";
 
 const { publicClient } = configureChains(supportedNetworks, [
   w3mProvider({ projectId }),

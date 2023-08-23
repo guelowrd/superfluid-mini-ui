@@ -77,7 +77,7 @@ yarn add @superfluid-finance/widget wagmi @superfluid-finance/tokenlist @apollo/
 
 Since verifying Lens handle ownership is the first step of our user workflow, let's start with that!
 
-We can create a new folder at the root, ```components```. In this folder we add a new file, ```lens.ts```, with the following code:
+We can create a new folder at the root, ```configs```. In this folder we add a new file, ```lens.ts```, with the following code:
 
 ```ts
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
@@ -189,7 +189,7 @@ At this stage, your project tree should be:
 │   ├── globals.css
 │   ├── layout.tsx
 │   └── page.tsx
-├── components
+├── configs
 │   └── lens.ts      <- we created this
 ├── public
 │   ├── next.svg
@@ -207,7 +207,7 @@ At this stage, your project tree should be:
 ## Setup Superfluid Subscription Widget
 
 We then need to specify the properties of our Superfluid Subscription Widget: ```paymentOptions```, ```paymentDetails``` and ```productDetails```. 
-We will create one file for each in our ```components``` folder:
+We will create one file for each in our ```configs``` folder:
 
 ```ts
 //paymentOptions.ts
@@ -266,7 +266,7 @@ At this stage and until the end, your project file tree should be:
 │   ├── globals.css
 │   ├── layout.tsx
 │   └── page.tsx
-├── components
+├── configs
 │   ├── lens.ts
 │   ├── paymentDetails.ts      <- we created this
 │   ├── paymentOptions.ts      <- we created this
@@ -306,9 +306,9 @@ import superTokenList from "@superfluid-finance/tokenlist";
 import { useState, useMemo } from "react";
 import { configureChains, createConfig, WagmiConfig, useNetwork } from "wagmi";
 
-import paymentDetails from "../components/paymentDetails";
-import productDetails from "../components/productDetails";
-import { apolloClient, query } from "../components/lens";
+import paymentDetails from "../configs/paymentDetails";
+import productDetails from "../configs/productDetails";
+import { apolloClient, query } from "../configs/lens";
 
 const projectId = "952483bf7a0f5ace4c40eb53967f1368";
 
