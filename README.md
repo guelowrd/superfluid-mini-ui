@@ -14,7 +14,7 @@ npm install
 ```
 Then go to [the end of this tutorial](https://github.com/guelowrd/superfluid-mini-ui#run-locally) to run the app locally.
 
-*TODO: add screenshot*
+![app opening screen](./public/app-screenshot-1.png "app opening screen")
 
 Keep reading for the full step-by-step tutorial explaining how to actually make that frontend yourself.
 
@@ -448,7 +448,23 @@ npm run dev
 ```
 2. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-*TODO: add screenshots*
+## User Workflow
+
+It should look like this:
+
+![app opening screen](./public/app-screenshot-1.png "app opening screen")
+
+If the input address does not have a Lens handle, the user cannot create a SuperFluid strem:
+
+![address invalid screen](./public/app-screenshot-2.0.png "app address invalid screen")
+
+If the input address is valid, "Create Stream" button appears:
+
+![address valid screen](./public/app-screenshot-2.1.png "app address valid screen")
+
+The user can then use SuperFluid Widget to setup the payment stream by connecting their wallet, wrapping ERC20 to SuperTokens, and activate the stream.
+
+![superfluid widget screen](./public/app-screenshot-3.png "app superfluid widget screen")
 
 ## Troubleshooting
 
